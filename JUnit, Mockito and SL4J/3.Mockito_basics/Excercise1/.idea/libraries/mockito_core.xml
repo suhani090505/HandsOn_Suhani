@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="mockito.core" type="repository">
+    <properties maven-id="org.mockito:mockito-core:5.12.0">
+      <exclude>
+        <dependency maven-id="net.bytebuddy:byte-buddy-agent" />
+        <dependency maven-id="net.bytebuddy:byte-buddy" />
+        <dependency maven-id="org.mockito:mockito-core" />
+        <dependency maven-id="org.objenesis:objenesis" />
+      </exclude>
+    </properties>
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
