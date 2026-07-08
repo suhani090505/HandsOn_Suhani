@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Reusable skill lists so different employees can share the same skill set -->
+    <util:list id="javaSkills">
+        <value>Java</value>
+        <value>Spring Boot</value>
+        <value>REST</value>
+    </util:list>
+
+    <util:list id="frontendSkills">
+        <value>Angular</value>
+        <value>TypeScript</value>
+        <value>HTML/CSS</value>
+    </util:list>
+
+    <util:list id="dbSkills">
+        <value>SQL</value>
+        <value>PL/SQL</value>
+        <value>Data Modeling</value>
+    </util:list>
+
+    <!-- Four Employee instances spread across two departments -->
+    <bean id="employee1" class="com.training.employeeapp.model.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="Alice Johnson"/>
+        <property name="department" value="Engineering"/>
+        <property name="skills" ref="javaSkills"/>
+    </bean>
+
+    <bean id="employee2" class="com.training.employeeapp.model.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Bob Williams"/>
+        <property name="department" value="Engineering"/>
+        <property name="skills" ref="frontendSkills"/>
+    </bean>
+
+    <bean id="employee3" class="com.training.employeeapp.model.Employee">
+        <property name="id" value="3"/>
+        <property name="name" value="Carla Mendes"/>
+        <property name="department" value="Database Administration"/>
+        <property name="skills" ref="dbSkills"/>
+    </bean>
+
+    <bean id="employee4" class="com.training.employeeapp.model.Employee">
+        <property name="id" value="4"/>
+        <property name="name" value="David Kim"/>
+        <property name="department" value="Database Administration"/>
+        <property name="skills" ref="javaSkills"/>
+    </bean>
+
+    <!-- All four employees collected into a single ArrayList bean, read by EmployeeDao -->
+    <util:list id="employeeList" list-class="java.util.ArrayList">
+        <ref bean="employee1"/>
+        <ref bean="employee2"/>
+        <ref bean="employee3"/>
+        <ref bean="employee4"/>
+    </util:list>
+
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="department1" class="com.training.employeeapp.model.Department">
+        <property name="id" value="1"/>
+        <property name="name" value="Engineering"/>
+    </bean>
+
+    <bean id="department2" class="com.training.employeeapp.model.Department">
+        <property name="id" value="2"/>
+        <property name="name" value="Database Administration"/>
+    </bean>
+
+    <bean id="department3" class="com.training.employeeapp.model.Department">
+        <property name="id" value="3"/>
+        <property name="name" value="Human Resources"/>
+    </bean>
+
+    <!-- All departments collected into a single ArrayList bean, read by DepartmentDao -->
+    <util:list id="departmentList" list-class="java.util.ArrayList">
+        <ref bean="department1"/>
+        <ref bean="department2"/>
+        <ref bean="department3"/>
+    </util:list>
+
+</beans>
